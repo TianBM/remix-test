@@ -13,6 +13,8 @@ import type { LinksFunction } from "remix";
 import globalStylesUrl from "~/styles/global.css";
 import darkStylesUrl from "~/styles/dark.css";
 
+import * as userService from '../db/services/user.service';
+
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => {
   return [
@@ -28,6 +30,9 @@ export let links: LinksFunction = () => {
 // https://remix.run/api/conventions#default-export
 // https://remix.run/api/conventions#route-filenames
 export default function App() {
+
+  userService.create({ name: "test"})
+
   return (
     <Document>
       <Layout>
