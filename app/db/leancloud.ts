@@ -1,9 +1,11 @@
-const AV = require('leancloud-storage');
+import AV from 'leancloud-storage';
 
-var LeanCloud = ()=>{
-    var instance = null;
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+const LeanCloud = ()=>{
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let instance: any = null;
 
-    function init(){
+    function getInstance(){
         if(!instance){
 
             AV.init({
@@ -20,7 +22,7 @@ var LeanCloud = ()=>{
         return instance;
     }
 
-    return init();
-}
+    return getInstance();
+};
 
 export default LeanCloud();

@@ -1,5 +1,5 @@
 {
-  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "db/services/user.service.js", "db/services/user.service.js", "db/leancloud.js"],
+  "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx", "app/db/services/user.service.ts", "app/db/services/user.service.ts",],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2019"],
     "esModuleInterop": true,
@@ -9,7 +9,7 @@
     "target": "ES2019",
     "strict": true,
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["./app/*"],
     },
 
     // Remix takes care of building everything in `remix build`.

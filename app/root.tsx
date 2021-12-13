@@ -13,7 +13,7 @@ import type { LinksFunction } from "remix";
 import globalStylesUrl from "~/styles/global.css";
 import darkStylesUrl from "~/styles/dark.css";
 
-import * as userService from '../db/services/user.service';
+import styles from "./tailwind.css";
 
 // https://remix.run/api/app#links
 export let links: LinksFunction = () => {
@@ -23,16 +23,19 @@ export let links: LinksFunction = () => {
       rel: "stylesheet",
       href: darkStylesUrl,
       media: "(prefers-color-scheme: dark)"
-    }
+    },
+    {
+      rel: "stylesheet",
+      href: "https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css",
+      type: "text/css"
+    },
+    { rel: "stylesheet", href: styles }
   ];
 };
 
 // https://remix.run/api/conventions#default-export
 // https://remix.run/api/conventions#route-filenames
 export default function App() {
-
-  userService.create({ name: "test"})
-
   return (
     <Document>
       <Layout>
@@ -138,10 +141,7 @@ function Layout({ children }: { children: React.ReactNode }) {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <a href="https://remix.run/docs">Remix Docs</a>
-              </li>
-              <li>
-                <a href="https://github.com/remix-run/remix">GitHub</a>
+                <a href="https://github.com/TianBM/remix-test">GitHub</a>
               </li>
             </ul>
           </nav>
@@ -152,7 +152,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       </div>
       <footer className="remix-app__footer">
         <div className="container remix-app__footer-content">
-          <p>&copy; You!</p>
+          <p>版权所有 &copy; junyou tian</p>
         </div>
       </footer>
     </div>
